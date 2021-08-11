@@ -8,7 +8,7 @@ public class Employee {
     private String lastName = new String();
     private String address = new String();
     //model: "City, street, number"
-    private String function = new String();
+    //private String function = new String();
     //model: "Hourly", "Salaried", "Comissioned"
     private UUID id;
     //unique id

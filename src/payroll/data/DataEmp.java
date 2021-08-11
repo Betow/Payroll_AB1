@@ -5,11 +5,11 @@ import java.util.List;
 
 import payroll.data.employee.*;
 
-public class Database {
+public class DataEmp {
 
     List<Employee> employees;
 
-    public Database(){
+    public DataEmp(){
         this.employees = new ArrayList<Employee>();
     }
 

@@ -9,4 +9,10 @@ public class InputUtils {
         System.out.println();
         return str;
     }
+
+    public static Double dbIn(Scanner sc){
+        Double db = sc.nextDouble();
+        System.out.println();
+        return db;
+    }
 }

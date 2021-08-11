@@ -12,7 +12,7 @@ public class PayMenu {
         Scanner input = new Scanner(System.in);
         //Scanner scanner = new Scanner(System.in);
 
-        Database database = new Database();
+        DataEmp database = new DataEmp();
 
         //Stack<String> undo = new Stack<>();
         //Stack<String> redo = new Stack<>();
@@ -31,7 +31,7 @@ public class PayMenu {
             System.out.println("[9] - Payment schedule");
             System.out.println("[10] - New payment schedule");
             System.out.println("[11] - Search employee");
-            System.out.println("[0] - Close\n");
+            System.out.println("[ 0] - Close\n");
 
             choice = input.nextInt();
             input.nextLine();
