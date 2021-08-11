@@ -29,6 +29,13 @@ public class EmpMenu {
         newEmp.setAddress(address);
         newEmp.setId(id);
 
+        System.out.println("Choose the function of the employee:");
+        System.out.println("[1] - Hourly\n[2] - Salaried\n[3] - Comissioned");
+        int choice = input.nextInt();
+
+        if(choice == 1){
+            
+        }
         return newEmp;
     }
 }
