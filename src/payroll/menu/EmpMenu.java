@@ -3,6 +3,7 @@ package payroll.menu;
 import java.util.Scanner;
 import java.util.UUID;
 
+import payroll.data.employee.Comissioned;
 import payroll.data.employee.Employee;
 import payroll.data.employee.Hourly;
 import payroll.data.employee.Salaried;
