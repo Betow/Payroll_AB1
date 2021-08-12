@@ -11,7 +11,7 @@ import payroll.menu.utils.InputUtils;
 
 public class EmpMenu {
     
-    public static Employee addEmployee(){
+    public static Employee addEmployee(){   //Function 01
         Employee newEmp = new Employee();
         //Payment info
         //payment schedule
@@ -54,6 +54,7 @@ public class EmpMenu {
             Double salaryComissioned = InputUtils.dbIn(scanner);
             Double percentage = InputUtils.dbIn(scanner);
             newEmp = new Comissioned(salaryComissioned, percentage);
+            // agenda de pagamento - comissionado
         }
 
         else{
@@ -61,6 +62,7 @@ public class EmpMenu {
             System.out.println("Enter the salary:");
             Double salary = InputUtils.dbIn(scanner);
             newEmp = new Salaried(salary);
+            //agenda de pagamento - assalariado
         }
 
         input.close();

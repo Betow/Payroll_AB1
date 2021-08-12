@@ -4,14 +4,13 @@ import java.util.UUID;
 
 public class Employee {
 
-    private String firstName = new String();
-    private String lastName = new String();
-    private String address = new String();
+    private String firstName;
+    private String lastName;
+    private String address;
     //model: "City, street, number"
-    //private String function = new String();
-    //model: "Hourly", "Salaried", "Comissioned"
     private UUID id;
     //unique id
+    private TradeUnion Member = null;
     
 
 
@@ -38,5 +37,13 @@ public class Employee {
 
     public String getAddress(){
         return this.address;
+    }
+
+    public void setMember(TradeUnion m){
+        this.Member = m;
+    }
+
+    public TradeUnion getMember(){
+        return this.Member;
     }
 }
