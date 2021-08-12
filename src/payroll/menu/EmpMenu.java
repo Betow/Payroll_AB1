@@ -7,12 +7,14 @@ import payroll.data.employee.Comissioned;
 import payroll.data.employee.Employee;
 import payroll.data.employee.Hourly;
 import payroll.data.employee.Salaried;
+import payroll.data.employee.TradeUnion;
 import payroll.menu.utils.InputUtils;
 
 public class EmpMenu {
     
     public static Employee addEmployee(){   //Function 01
         Employee newEmp = new Employee();
+        TradeUnion newUn;
         //Payment info
         //payment schedule
         //union member
@@ -35,7 +37,7 @@ public class EmpMenu {
 
         System.out.println("Choose the function of the employee:");
         System.out.println("[1] - Hourly\n[2] - Salaried\n[3] - Comissioned");
-        int choice = input.nextInt();
+        int choice = scanner.nextInt();
 
         if(choice == 1){
             System.out.println("Enter the Hourly Rate:");
@@ -56,13 +58,21 @@ public class EmpMenu {
             newEmp = new Comissioned(salaryComissioned, percentage);
             // agenda de pagamento - comissionado
         }
-
         else{
             System.out.println("Sorry, we couldn't recognize your choice. By default Salaried is chosen\n");
             System.out.println("Enter the salary:");
             Double salary = InputUtils.dbIn(scanner);
             newEmp = new Salaried(salary);
             //agenda de pagamento - assalariado
+        }
+
+        System.out.println("Is the employee a union member?\n[Y] or [N]");
+        String trade = InputUtils.strIn(input);
+        if(trade.equalsIgnoreCase("Y")){
+            System.out.println("Enter the Trade Union tax:");
+            Double taxUnion = InputUtils.dbIn(scanner);
+            newUn = new TradeUnion(UUID.randomUUID(), taxUnion);
+            newEmp.setMember(newUn);
         }
 
         input.close();
