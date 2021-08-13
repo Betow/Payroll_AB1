@@ -29,11 +29,10 @@ public class EmpMenu {
         System.out.println("\nEnter employee's address:");
         System.out.println("    ### Use 'City, Street, House Number' as standard ###");
         String address = InputUtils.strIn(input);
-        UUID id = UUID.randomUUID();
 
         newEmp.setName(fName, lName);
         newEmp.setAddress(address);
-        newEmp.setId(id);
+        newEmp.setId(UUID.randomUUID());
 
         System.out.println("Choose the function of the employee:");
         System.out.println("[1] - Hourly\n[2] - Salaried\n[3] - Comissioned");
@@ -54,6 +53,7 @@ public class EmpMenu {
         else if(choice == 3){
             System.out.println("Enter the salary:");
             Double salaryComissioned = InputUtils.dbIn(scanner);
+            System.out.println("Enter the sell rate:");
             Double percentage = InputUtils.dbIn(scanner);
             newEmp = new Comissioned(salaryComissioned, percentage);
             // agenda de pagamento - comissionado
@@ -68,15 +68,21 @@ public class EmpMenu {
 
         System.out.println("Is the employee a union member?\n[Y] or [N]");
         String trade = InputUtils.strIn(input);
-        if(trade.equalsIgnoreCase("Y")){
+        if(trade.equalsIgnoreCase("Y") || trade.equalsIgnoreCase("y")){
             System.out.println("Enter the Trade Union tax:");
             Double taxUnion = InputUtils.dbIn(scanner);
             newUn = new TradeUnion(UUID.randomUUID(), taxUnion);
             newEmp.setMember(newUn);
         }
-
-        input.close();
-        scanner.close();
+        else if(trade.equalsIgnoreCase("N") || trade.equalsIgnoreCase("n")){
+            newUn = null;
+            newEmp.setMember(newUn);
+        }
+        else{
+            System.out.println("By default, the employee isn't a union member");
+            newUn = null;
+            newEmp.setMember(newUn);
+        }
         return newEmp;
     }
 }
