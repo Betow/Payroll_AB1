@@ -12,7 +12,7 @@ public class PayMenu {
         Scanner input = new Scanner(System.in);
         //Scanner scanner = new Scanner(System.in);
 
-        DataEmp database = new DataEmp();
+        DataEmp dataEmp = new DataEmp();
 
         //Stack<String> undo = new Stack<>();
         //Stack<String> redo = new Stack<>();
@@ -28,7 +28,7 @@ public class PayMenu {
             System.out.println("[6] - Edit employee");
             System.out.println("[7] - Run payments");
             System.out.println("[8] - Undo/Redo");
-            System.out.println("[9] - Payment schedule");
+            System.out.println("[9] - Edit payment schedule");
             System.out.println("[10] - New payment schedule");
             System.out.println("[11] - Search employee");
             System.out.println("[ 0] - Close\n");
@@ -37,8 +37,9 @@ public class PayMenu {
             input.nextLine();
 
             switch(choice){
+
                 case 1:
-                database.setEmployee(EmpMenu.addEmployee());
+                dataEmp.setEmployee(EmpMenu.addEmployee());
                 break;
                 
                 case 0:

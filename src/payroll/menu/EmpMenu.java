@@ -1,5 +1,8 @@
 package payroll.menu;
 
+import java.lang.reflect.Method;
+import java.time.DayOfWeek;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -8,6 +11,9 @@ import payroll.data.employee.Employee;
 import payroll.data.employee.Hourly;
 import payroll.data.employee.Salaried;
 import payroll.data.employee.TradeUnion;
+import payroll.data.remuneration.Payday;
+import payroll.data.remuneration.RemMethod;
+import payroll.data.remuneration.Days;
 import payroll.menu.utils.InputUtils;
 
 public class EmpMenu {
@@ -15,9 +21,10 @@ public class EmpMenu {
     public static Employee addEmployee(){   //Function 01
         Employee newEmp = new Employee();
         TradeUnion newUn;
-        //Payment info
-        //payment schedule
-        //union member
+        Payday newPay = new Payday();
+        Days day = new Days();
+        RemMethod met = new RemMethod();
+
 
         Scanner input = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
@@ -42,13 +49,14 @@ public class EmpMenu {
             System.out.println("Enter the Hourly Rate:");
             Double timeValue = InputUtils.dbIn(scanner);
             newEmp = new Hourly(timeValue);
-            //agenda de pagamento - horista
+            newPay.setDayWeek(DayOfWeek.FRIDAY);
+            newPay.setDays(day.getDaysDefault(0));
         }
         else if(choice == 2){
             System.out.println("Enter the salary:");
             Double salary = InputUtils.dbIn(scanner);
             newEmp = new Salaried(salary);
-            //agenda de pagamento - assalariado
+            newPay.setDays(day.getDaysDefault(2));
         }
         else if(choice == 3){
             System.out.println("Enter the salary:");
@@ -56,14 +64,28 @@ public class EmpMenu {
             System.out.println("Enter the sell rate:");
             Double percentage = InputUtils.dbIn(scanner);
             newEmp = new Comissioned(salaryComissioned, percentage);
-            // agenda de pagamento - comissionado
+            newPay.setDayWeek(DayOfWeek.FRIDAY);
+            newPay.setDays(day.getDaysDefault(1));
         }
         else{
             System.out.println("Sorry, we couldn't recognize your choice. By default Salaried is chosen\n");
             System.out.println("Enter the salary:");
             Double salary = InputUtils.dbIn(scanner);
             newEmp = new Salaried(salary);
-            //agenda de pagamento - assalariado
+            newPay.setDays(day.getDaysDefault(2));
+        }
+
+        System.out.println("Please enter remuneration method:");
+        List<String> rm = met.getMethod();
+        int i = 1;
+        for(String a : rm){
+            System.out.println("[" + i + "]" + a);
+            i++;
+        }
+        choice = -1;
+        choice = scanner.nextInt();
+        if(choice == 1){
+            
         }
 
         System.out.println("Is the employee a union member?\n[Y] or [N]");

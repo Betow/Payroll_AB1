@@ -2,6 +2,8 @@ package payroll.data.employee;
 
 import java.util.UUID;
 
+import payroll.data.remuneration.Remuneration;
+
 public class Employee {
 
     private String firstName;
@@ -11,6 +13,7 @@ public class Employee {
     private UUID id;
     //unique id
     private TradeUnion Member = null;
+    private Remuneration remuneration;
     
 
 
@@ -45,5 +48,13 @@ public class Employee {
 
     public TradeUnion getMember(){
         return this.Member;
+    }
+
+    public void setRemuneration(Remuneration r){
+        this.remuneration = r;
+    }
+
+    public Remuneration getRemuneration(){
+        return this.remuneration;
     }
 }
