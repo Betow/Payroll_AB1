@@ -5,15 +5,20 @@ import java.util.List;
 
 public class RemMethod {
     private List<String> remuMethod = new ArrayList<String>();
+    private String remuMethodSelected;
 
-    public void Method(){
-        
-    }
-    
-    public void setMethodDefault(){
+    public void setDefaultMethod(){
         this.remuMethod.add("Check in hand");
         this.remuMethod.add("Check by post");
         this.remuMethod.add("Bank account deposit");
+    }
+
+    public void selectedMethod(int index){
+        remuMethodSelected = getMethodDefault(index);
+    }
+
+    public String getremuMethodSelected(){
+        return remuMethodSelected;
     }
 
     public String getMethodDefault(int index){
@@ -24,7 +29,11 @@ public class RemMethod {
         this.remuMethod.add(newMethod);
     }
 
-    public List<String> getMethod(){
-        return this.remuMethod;
+    public void getMethod(){
+        int i = 1;
+        for(String r: this.remuMethod){
+            System.out.println("[" + i + "]" + r);
+            i++;
+        }
     }
 }

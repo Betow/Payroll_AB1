@@ -2,10 +2,10 @@ package payroll.data.remuneration;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Banks {
     private List<String> banks = new ArrayList<String>();
+    private String banksSelected;
 
     public void setBanksDefault(){
         this.banks.add("Federal Savings Bank");
@@ -13,6 +13,14 @@ public class Banks {
         this.banks.add("Bank Itau");
         this.banks.add("Bradesco Bank");
         this.banks.add("Santander Bank");
+    }
+
+    public void selectedBank(int index){
+        banksSelected = getBanksDefault(index);
+    }
+
+    public String getBanksSelected(){
+        return banksSelected;
     }
 
     public String getBanksDefault(int index){
@@ -23,25 +31,11 @@ public class Banks {
         this.banks.add(newBank);
     }
 
-    public List<String> getBanks(){
-        return this.banks;
-    }
-
-    public String chooseBank(Scanner input){
-        int i = 1, index = 0;
-        System.out.println("Choose one of the banks bellow:");
+    public void getBank(){
+        int i = 1;
         for(String b: this.banks){
             System.out.println("[" + i + "]" + b);
             i++;
         }
-        index = input.nextInt();
-        if(index > 0 && index<= 5){
-            index --;
-        }
-        else{
-            System.out.println("The choice was wrong. By default the bank selected is Federal Savings Bank");
-            index = 0;
-        }
-        return this.banks.get(index);
     }
 }

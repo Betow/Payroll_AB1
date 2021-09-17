@@ -23,7 +23,7 @@ public class Employee {
     }
 
     public String getName(){
-        return this.firstName + this.lastName;
+        return this.firstName + " " + this.lastName;
     }
 
     public void setId(UUID identity){
@@ -56,5 +56,14 @@ public class Employee {
 
     public Remuneration getRemuneration(){
         return this.remuneration;
+    }
+
+    public void employeeInfo(){
+        System.out.println("Name: " + getName() + "\n" + "Address: " + getAddress());
+        System.out.println("Paycheck: " + getRemuneration().getDays());
+        System.out.println("Id: " + getId());
+        System.out.println("Bank: " + getRemuneration().getSelectedBank() + "\n" +
+        "Branch: " + getRemuneration().getBankBranch() + "  Account: " + getRemuneration().getBankAccount() +
+        "\n" + "Method: "+getRemuneration().getSelectedMethod());
     }
 }

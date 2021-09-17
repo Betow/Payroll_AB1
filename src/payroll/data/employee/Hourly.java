@@ -9,6 +9,7 @@ public class Hourly extends Employee{
 
     private List<Timecard> cards;
 
+
     public Hourly(Double tR){
         this.timeRate = tR;
         this.cards = new ArrayList<Timecard>();

@@ -31,7 +31,7 @@ public class PayMenu {
             System.out.println("[9] - Edit payment schedule");
             System.out.println("[10] - New payment schedule");
             System.out.println("[11] - Search employee");
-            System.out.println("[ 0] - Close\n");
+            System.out.println("[0] - Close\n");
 
             choice = input.nextInt();
             input.nextLine();
@@ -47,7 +47,7 @@ public class PayMenu {
                 running = false;
                 try 
                 {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 } 
                 catch (Exception e)
                 {
@@ -56,7 +56,7 @@ public class PayMenu {
                 System.out.println("...\n");
                 try 
                 {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 } 
                 catch (Exception e)
                 {
@@ -65,7 +65,7 @@ public class PayMenu {
                 System.out.println("..\n");
                 try 
                 {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 } 
                 catch (Exception e)
                 {
@@ -74,7 +74,7 @@ public class PayMenu {
                 System.out.println(".\n");
                 try 
                 {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 } 
                 catch (Exception e)
                 {
